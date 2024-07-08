@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>cn.edu.tsinghua</groupId>
+    <groupId>com.cgn</groupId>
     <artifactId>iot-benchmark</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
@@ -11,25 +11,8 @@
     <url>http://maven.apache.org</url>
     <modules>
         <module>core</module>
-        <module>influxdb</module>
-        <module>influxdb-2.0</module>
-        <module>cnosdb</module>
-        <module>kairosdb</module>
-        <module>opentsdb</module>
-        <module>tdengine</module>
-        <module>tdengine-3.0</module>
-        <module>questdb</module>
-        <module>timescaledb</module>
-        <module>timescaledb-cluster</module>
-        <module>victoriametrics</module>
-        <module>iotdb-1.3</module>
-        <module>iotdb-1.1</module>
-        <module>iotdb-1.0</module>
-        <module>mssqlserver</module>
-        <module>sqlite</module>
-        <module>verification</module>
-<!--        <module>pi</module>-->
-<!--        <module>iginx</module>-->
+        <module>Kafka-Producer</module>
+        <module>Kafka-Consumer</module>
     </modules>
 
     <properties>
@@ -58,6 +41,42 @@
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
             <version>1.2.17</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.iotdb</groupId>
+            <artifactId>common-api</artifactId>
+            <version>1.3.1</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.iotdb</groupId>
+            <artifactId>isession</artifactId>
+            <version>1.3.1</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.83_noneautotype</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.iotdb</groupId>
+            <artifactId>iotdb-session</artifactId>
+            <version>1.3.1</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-clients</artifactId>
+            <version>3.6.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.10.1</version>
+            <scope>compile</scope>
         </dependency>
 
     </dependencies>

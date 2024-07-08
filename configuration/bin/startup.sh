@@ -96,7 +96,7 @@ fi
 echo Using configuration file: "${benchmark_conf}"
 
 # set MAIN_CLASS
-MAIN_CLASS=cn.edu.tsinghua.iot.benchmark.App
+MAIN_CLASS=com.cgn.iot.benchmark.App
 # set CLASSPATH
 CLASSPATH=""
 for f in ${BENCHMARK_HOME}/lib/*.jar; do

@@ -110,10 +110,10 @@ cd iotdb-1.0/target/iot-benchmark-iotdb-1.0/iot-benchmark-iotdb-1.0
 
 ```
 ...
-2022-05-08 14:26:36,478 INFO  cn.edu.tsinghua.iot.benchmark.client.DataClient:137 - pool-2-thread-4 17.10% workload is done. 
-2022-05-08 14:26:41,479 INFO  cn.edu.tsinghua.iot.benchmark.client.DataClient:137 - pool-2-thread-13 56.59% workload is done. 
-2022-05-08 14:26:41,479 INFO  cn.edu.tsinghua.iot.benchmark.client.DataClient:137 - pool-2-thread-2 18.01% workload is done. 
-2022-05-08 14:26:41,480 INFO  cn.edu.tsinghua.iot.benchmark.client.DataClient:137 - pool-2-thread-14 54.01% workload is done. 
+2022-05-08 14:26:36,478 INFO  com.cgn.iot.benchmark.client.DataClient:137 - pool-2-thread-4 17.10% workload is done. 
+2022-05-08 14:26:41,479 INFO  com.cgn.iot.benchmark.client.DataClient:137 - pool-2-thread-13 56.59% workload is done. 
+2022-05-08 14:26:41,479 INFO  com.cgn.iot.benchmark.client.DataClient:137 - pool-2-thread-2 18.01% workload is done. 
+2022-05-08 14:26:41,480 INFO  com.cgn.iot.benchmark.client.DataClient:137 - pool-2-thread-14 54.01% workload is done. 
 ...
 ```
 
@@ -121,7 +121,7 @@ cd iotdb-1.0/target/iot-benchmark-iotdb-1.0/iot-benchmark-iotdb-1.0
 
 ```
 ...
-2022-05-08 14:40:54,243 INFO  cn.edu.tsinghua.iot.benchmark.mode.BaseMode:154 - All dataClients finished. 
+2022-05-08 14:40:54,243 INFO  com.cgn.iot.benchmark.mode.BaseMode:154 - All dataClients finished. 
 ----------------------Main Configurations----------------------
 ########### Test Mode ###########
 BENCHMARK_WORK_MODE=testWithDefaultPath

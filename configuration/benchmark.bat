@@ -58,7 +58,7 @@ if NOT DEFINED BENCHMARK_HOME set BENCHMARK_HOME=%~dp0
 set BENCHMARK_CONF=%BENCHMARK_HOME%\conf
 set BENCHMARK_LOGS=%BENCHMARK_HOME%\logs
 
-if NOT DEFINED MAIN_CLASS set MAIN_CLASS=cn.edu.tsinghua.iot.benchmark.App
+if NOT DEFINED MAIN_CLASS set MAIN_CLASS=com.cgn.iot.benchmark.App
 if NOT DEFINED JAVA_HOME goto :err
 
 @REM -----------------------------------------------------------------------------
