@@ -1,12 +1,13 @@
 package com.cgn.kafka.consumer;
 
-import com.alibaba.fastjson.JSONObject;
-import com.google.gson.*;
 import org.apache.iotdb.isession.util.Version;
 import org.apache.iotdb.rpc.IoTDBConnectionException;
 import org.apache.iotdb.rpc.StatementExecutionException;
 import org.apache.iotdb.session.Session;
 import org.apache.iotdb.tsfile.file.metadata.enums.TSDataType;
+
+import com.alibaba.fastjson.JSONObject;
+import com.google.gson.*;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
@@ -30,7 +31,7 @@ public class KafkaConsumerThread implements Runnable {
               new JsonDeserializer<Number>() {
                 @Override
                 public Number deserialize(
-                        JsonElement json, Type typeOfT, JsonDeserializationContext context)
+                    JsonElement json, Type typeOfT, JsonDeserializationContext context)
                     throws JsonParseException {
                   // 如果是整数形式，返回Integer，否则返回Double
                   if (json.getAsJsonPrimitive().isNumber()) {

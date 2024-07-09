@@ -57,7 +57,7 @@ public class Config {
 
   // 初始化：工作状态
   /** Total number of operations that each client process */
-  private long LOOP = 100;
+  private long LOOP = Long.MAX_VALUE;
 
   private int KAFKA_PARTITION = 1;
 
@@ -75,7 +75,7 @@ public class Config {
   private Long TEST_MAX_TIME = 0L;
 
   /** Whether to use measurement */
-  private boolean USE_MEASUREMENT = true;
+  private boolean USE_MEASUREMENT = false;
   /** Precision of result, unit: % */
   private double RESULT_PRECISION = 0.1;
 
@@ -258,7 +258,7 @@ public class Config {
    * The operation execution interval if operation time > OP_MIN_INTERVAL, then execute next
    * operations right now. else wait (OP_MIN_INTERVAL - operation time) unit: ms
    */
-  private long OP_MIN_INTERVAL = 0;
+  private long OP_MIN_INTERVAL = -1;
   /** Whether to randomly select the minimum execution interval of the operation */
   private boolean OP_MIN_INTERVAL_RANDOM = false;
   /** The max time for writing in ms */
@@ -272,7 +272,7 @@ public class Config {
    * device at a certain time stamp the number of data points written in each batch = SENSOR_NUMBER
    * * BATCH_SIZE
    */
-  private int BATCH_SIZE_PER_WRITE = 100;
+  private int BATCH_SIZE_PER_WRITE = 1;
 
   private int DEVICE_NUM_PER_WRITE = 1;
   /** Whether create schema before writing */
@@ -292,7 +292,7 @@ public class Config {
 
   // Operation：乱序写入部分
   /** Whether insert out of order */
-  private boolean IS_OUT_OF_ORDER = true;
+  private boolean IS_OUT_OF_ORDER = false;
   /**
    * The mode of out-of-order insertion 0: Out-of-order mode of Poisson distribution 1: Out-of-order
    * mode of batch
@@ -868,7 +868,7 @@ public class Config {
   }
 
   public int getCLIENT_NUMBER() {
-    return CLIENT_NUMBER;
+    return DEVICE_NUMBER;
   }
 
   public void setCLIENT_NUMBER(int CLIENT_NUMBER) {
@@ -1757,7 +1757,7 @@ public class Config {
     configProperties.addProperty("Data Mode", "IS_OUT_OF_ORDER", this.IS_OUT_OF_ORDER);
     configProperties.addProperty("Data Mode", "OUT_OF_ORDER_RATIO", this.OUT_OF_ORDER_RATIO);
     configProperties.addProperty("Data Amount", "OPERATION_PROPORTION", this.OPERATION_PROPORTION);
-    configProperties.addProperty("Data Amount", "CLIENT_NUMBER", this.CLIENT_NUMBER);
+    configProperties.addProperty("Data Amount", "CLIENT_NUMBER", this.DEVICE_NUMBER);
     configProperties.addProperty("Data Amount", "LOOP", this.LOOP);
     configProperties.addProperty("Data Amount", "BATCH_SIZE_PER_WRITE", this.BATCH_SIZE_PER_WRITE);
     configProperties.addProperty("Data Amount", "DEVICE_NUM_PER_WRITE", this.DEVICE_NUM_PER_WRITE);

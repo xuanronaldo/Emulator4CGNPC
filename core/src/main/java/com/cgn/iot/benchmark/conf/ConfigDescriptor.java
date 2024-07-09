@@ -91,7 +91,7 @@ public class ConfigDescriptor {
         config.setINIT_WAIT_TIME(
             Long.parseLong(
                 properties.getProperty("INIT_WAIT_TIME", config.getINIT_WAIT_TIME() + "")));
-        config.setLOOP(Long.parseLong(properties.getProperty("LOOP", config.getLOOP() + "")));
+        config.setLOOP(Long.MAX_VALUE);
         config.setBENCHMARK_WORK_MODE(
             BenchmarkMode.getBenchmarkMode(
                 properties.getProperty(
@@ -101,16 +101,12 @@ public class ConfigDescriptor {
         config.setTEST_MAX_TIME(
             Long.parseLong(
                 properties.getProperty("TEST_MAX_TIME", config.getTEST_MAX_TIME() + "")));
-        config.setUSE_MEASUREMENT(
-            Boolean.parseBoolean(
-                properties.getProperty("USE_MEASUREMENT", config.isUSE_MEASUREMENT() + "")));
+        config.setUSE_MEASUREMENT(false);
         config.setRESULT_PRECISION(
             Double.parseDouble(
                 properties.getProperty("RESULT_PRECISION", config.getRESULT_PRECISION() + "")));
 
-        config.setDB_SWITCH(
-            DBSwitch.getDBType(
-                properties.getProperty("DB_SWITCH", config.getDbConfig().getDB_SWITCH() + "")));
+        config.setDB_SWITCH(DBSwitch.DB_KAFKA_PRODUCER);
         String hosts = properties.getProperty("HOST", config.getDbConfig().getHOSTString());
         config.setHOST(Arrays.asList(hosts.split(",")));
         String ports = properties.getProperty("PORT", config.getDbConfig().getPORTString());
@@ -247,7 +243,7 @@ public class ConfigDescriptor {
                 properties.getProperty("IS_CLIENT_BIND", config.isIS_CLIENT_BIND() + "")));
         config.setCLIENT_NUMBER(
             Integer.parseInt(
-                properties.getProperty("CLIENT_NUMBER", config.getCLIENT_NUMBER() + "")));
+                properties.getProperty("CLIENT_NUMBER", config.getDEVICE_NUMBER() + "")));
         config.setGROUP_NAME_PREFIX(
             properties.getProperty("GROUP_NAME_PREFIX", config.getGROUP_NAME_PREFIX()));
         config.setDEVICE_NAME_PREFIX(
@@ -358,12 +354,7 @@ public class ConfigDescriptor {
             Integer.parseInt(
                 properties.getProperty(
                     "CNOSDB_SHARD_NUMBER", config.getCNOSDB_SHARD_NUMBER() + "")));
-        config.setOP_MIN_INTERVAL(
-            Long.parseLong(
-                properties.getProperty("OP_MIN_INTERVAL", config.getOP_MIN_INTERVAL() + "")));
-        if (config.getOP_MIN_INTERVAL() == -1L) {
-          config.setOP_MIN_INTERVAL(config.getPOINT_STEP());
-        }
+        config.setOP_MIN_INTERVAL(config.getPOINT_STEP());
         config.setOP_MIN_INTERVAL_RANDOM(
             Boolean.parseBoolean(
                 properties.getProperty(
@@ -376,10 +367,7 @@ public class ConfigDescriptor {
             Integer.parseInt(
                 properties.getProperty(
                     "READ_OPERATION_TIMEOUT_MS", config.getREAD_OPERATION_TIMEOUT_MS() + "")));
-        config.setBATCH_SIZE_PER_WRITE(
-            Integer.parseInt(
-                properties.getProperty(
-                    "BATCH_SIZE_PER_WRITE", config.getBATCH_SIZE_PER_WRITE() + "")));
+        config.setBATCH_SIZE_PER_WRITE(1);
         config.setDEVICE_NUM_PER_WRITE(
             Integer.parseInt(
                 properties.getProperty(
@@ -401,9 +389,7 @@ public class ConfigDescriptor {
         config.setANOMALY_TIMES(
             Integer.parseInt(
                 properties.getProperty("ANOMALY_TIMES", config.getANOMALY_TIMES() + "")));
-        config.setIS_OUT_OF_ORDER(
-            Boolean.parseBoolean(
-                properties.getProperty("IS_OUT_OF_ORDER", config.isIS_OUT_OF_ORDER() + "")));
+        config.setIS_OUT_OF_ORDER(false);
         config.setOUT_OF_ORDER_MODE(
             OutOfOrderMode.getOutOfOrderMode(
                 properties.getProperty(

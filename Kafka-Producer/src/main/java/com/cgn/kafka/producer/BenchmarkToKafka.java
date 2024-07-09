@@ -209,7 +209,7 @@ public class BenchmarkToKafka implements IDatabase {
   }
 
   protected String getDevicePath(DeviceSchema deviceSchema) {
-    StringBuilder name = new StringBuilder(ROOT_SERIES_NAME);
+    StringBuilder name = new StringBuilder("root.cgn");
     name.append(".").append(deviceSchema.getGroup());
     for (Map.Entry<String, String> pair : deviceSchema.getTags().entrySet()) {
       name.append(".").append(pair.getValue());
